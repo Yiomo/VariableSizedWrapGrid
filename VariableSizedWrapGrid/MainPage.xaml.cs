@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -8,8 +7,6 @@ namespace VariableSizedWrapGrid
 {
     public sealed partial class MainPage : Page
     {
-        private readonly Random random = new Random();
-
         public MainPage()
         {
             InitializeComponent();
@@ -23,11 +20,8 @@ namespace VariableSizedWrapGrid
         private void RefreshItems()
         {
             var items = Enumerable.Range(0, 20)
-                .Select(x => new Item
-                {
-                    Index = x + 1,
-                    RowSpan = random.Next(3) + 1
-                });
+                .Select(x => new Item { Index = x + 1 });
+
             Items.Clear();
             foreach (var item in items)
             {
