@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace VariableSizedWrapGrid
@@ -11,22 +9,14 @@ namespace VariableSizedWrapGrid
         {
             InitializeComponent();
 
-            Items = new ObservableCollection<Item>();
-            RefreshItems();
+            Items = new ItemsCollection();
         }
 
-        public ObservableCollection<Item> Items { get; }
+        public ItemsCollection Items { get; }
 
         private void RefreshItems()
         {
-            var items = Enumerable.Range(0, 20)
-                .Select(x => new Item { Index = x + 1 });
-
-            Items.Clear();
-            foreach (var item in items)
-            {
-                Items.Add(item);
-            }
+            Items.Refresh();
         }
 
         private void RefreshButtonClick(object sender, RoutedEventArgs e)
