@@ -22,7 +22,7 @@ namespace VariableSizedWrapGrid
 
         private void RefreshItems()
         {
-            var items = Enumerable.Range(0, 10)
+            var items = Enumerable.Range(0, 20)
                 .Select(x => new Item
                 {
                     Index = x + 1,
@@ -35,7 +35,7 @@ namespace VariableSizedWrapGrid
             }
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void RefreshButtonClick(object sender, RoutedEventArgs e)
         {
             RefreshItems();
         }

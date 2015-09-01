@@ -13,35 +13,34 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button Click="ButtonBase_OnClick">Refresh</Button>
+        <Button Click="RefreshButtonClick">Refresh</Button>
 
         <local:VariableGridView Grid.Row="1" ItemsSource="{x:Bind Items}">
 
-            <GridView.ItemContainerStyle>
+            <ItemsControl.ItemContainerStyle>
                 <Style TargetType="GridViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                     <Setter Property="VerticalContentAlignment" Value="Stretch" />
                 </Style>
-            </GridView.ItemContainerStyle>
+            </ItemsControl.ItemContainerStyle>
 
-            <GridView.ItemsPanel>
+            <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VariableSizedWrapGrid
-                    MaximumRowsOrColumns="3"
-                    Orientation="Horizontal"
-                    ItemWidth="100" ItemHeight="100" />
+                        Orientation="Horizontal"
+                        MaximumRowsOrColumns="10"
+                        HorizontalAlignment="Center"
+                        ItemWidth="200" ItemHeight="200" />
                 </ItemsPanelTemplate>
-            </GridView.ItemsPanel>
+            </ItemsControl.ItemsPanel>
 
-            <GridView.ItemTemplate>
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid Background="LightBlue">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock Text="{Binding Index}" />
-                        </StackPanel>
+                        <TextBlock Text="{Binding Index}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Grid>
                 </DataTemplate>
-            </GridView.ItemTemplate>
+            </ItemsControl.ItemTemplate>
         </local:VariableGridView>
 
     </Grid>
